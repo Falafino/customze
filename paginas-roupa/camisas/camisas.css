@@ -1,0 +1,380 @@
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    
+    /* AJUSTE FINO: Compensação para as barras fixas. (Top Bar + Nav Bar) */
+    /* Valor estimado: top-bar (aprox 45px) + nav bar (aprox 45px) = 90px. */
+    padding-top: 90px; 
+}
+
+body.night-mode {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+}
+
+header.night-mode {
+    background-color: #222;
+}
+
+button {
+    padding: 0.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #777;
+}
+
+/* ---------------------------------------------------- */
+/* TOP BAR (Fixo no topo absoluto - Design Ajustado) */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em; /* Padding vertical reduzido */
+    background-color: #333;
+    
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    z-index: 1030; 
+    height: 45px; /* Altura fixa para a top-bar (ajustar se necessário) */
+}
+
+.logo {
+    font-size: 1.5em;
+    transition: color 0.3s;
+    /* Adicionado margin-left para afastar um pouco da borda, se necessário */
+    margin-left: 0.5em; 
+}
+
+/* Campo de Busca (Ajustado para o novo design) */
+.search-container {
+    display: flex; 
+    align-items: center;
+    flex-grow: 1; /* Permite que o search-container ocupe espaço */
+    justify-content: center; /* Centraliza a search-bar dentro dele */
+}
+
+.search-bar {
+    width: 30%; /* Largura reduzida */
+    max-width: 400px; /* Limite máximo de largura */
+    padding: 0.5em 1em;
+    padding-right: 2.5em; /* Espaço para o ícone de busca */
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0; /* Remove margem extra */
+    
+    /* Ícone de busca como background (requer Font Awesome no HTML) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23888" d="M416 208c0 45.9-14.9 88.3-40 122.7L461.7 461.7c4.7 4.7 12.3 4.7 17 0l19-19c4.7-4.7 4.7-12.3 0-17L370.7 301.7c34.4-25.1 77.8-40 122.7-40zM208 352c79.5 0 144-64.5 144-144S287.5 64 208 64 64 128.5 64 208s64.5 144 144 144z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center; /* Posição do ícone */
+    background-size: 1.2em; /* Tamanho do ícone */
+}
+
+.search-button {
+    display: none; /* Oculta o botão de busca, pois o ícone está no input */
+}
+
+.user-info {
+    display: flex;
+    gap: 1em;
+    /* Alinha os itens à direita */
+    margin-left: auto; 
+    /* Padding-right para afastar da borda direita */
+    padding-right: 1em; 
+}
+
+.user-info a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+    white-space: nowrap; /* Impede quebras de linha em links como "Contas e Listas" */
+}
+
+.user-info a:hover {
+    color: #ddd;
+}
+
+.user-info i {
+    /* REMOVIDO: margem para o ícone, pois a imagem não os mostra */
+    margin-right: 0; 
+}
+
+/* ---------------------------------------------------- */
+/* NAV BAR (Fixo logo abaixo da top-bar - Design Ajustado) */
+nav {
+    background-color: #444;
+    padding: 0 1em; 
+    display: flex; 
+    align-items: center;
+    
+    position: fixed;
+    /* CHAVE: Posiciona a nav exatamente onde a top-bar (45px) termina */
+    top: 45px; 
+    width: 100%;
+    z-index: 1020; 
+    height: 45px; /* Altura fixa para a nav bar (ajustar se necessário) */
+}
+
+nav.night-mode {
+    background-color: #333;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em; /* Espaçamento ligeiramente maior entre os itens da nav */
+    padding: 0; 
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0.5em 0; /* Adicionado padding para aumentar a área clicável */
+    display: block; /* Para o padding funcionar corretamente */
+}
+
+nav a:hover {
+    color: #ddd;
+}
+
+.nav-item .btn.dropdown-toggle {
+    background-color: transparent !important;
+    border: none !important;
+    color: white !important; 
+    padding: 0.5em 0 !important; /* Ajusta o padding para alinhar com os outros links */
+    display: block !important;
+}
+
+.nav-item .btn.dropdown-toggle:hover {
+    background-color: transparent !important;
+    color: #ddd !important;
+}
+
+.dropdown-menu {
+    background-color: #ffffff; 
+    border: 1px solid #ccc;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); 
+}
+
+.dropdown-item {
+    color: #333333; 
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #f0f0f0; 
+    color: #333333; 
+}
+
+body.night-mode .dropdown-menu {
+    background-color: #444; 
+    border-color: #555;
+}
+
+body.night-mode .dropdown-item {
+    color: #f0f0f0;
+}
+
+body.night-mode .dropdown-item:hover,
+body.night-mode .dropdown-item:focus {
+    background-color: #555;
+    color: #ffffff;
+}
+
+/* ---------------------------------------------------- */
+/* CONTEÚDO E CARDS */
+main.flex-grow-1 {
+    flex-grow: 1; 
+    padding-bottom: 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 3em 1em;
+    transition: transform 0.3s;
+}
+
+.hero:hover {
+    transform: scale(1.05);
+}
+
+.produtos-section { 
+    padding: 2em 1em;
+    text-align: center;
+}
+
+.produtos-grid { 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: stretch; 
+    gap: 30px; 
+    margin-bottom: 2em;
+}
+
+.produto {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    
+    min-height: 420px; 
+}
+
+.img-wrapper {
+    height: 250px; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em; 
+}
+
+.img-wrapper img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto; 
+    height: auto;
+    margin-bottom: 0; 
+    transition: transform 0.3s;
+}
+
+.produto p {
+    margin: 0.2em 0;
+}
+
+.produto input[type="number"] {
+    width: 60px;
+    text-align: center;
+    margin: 1em 0;
+}
+
+.produto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.produto:hover .img-wrapper img {
+    transform: scale(1.05); 
+}
+
+.carrinho {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    padding: 1em;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.carrinho.aberto {
+    right: 0;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* ---------------------------------------------------- */
+/* FOOTER E MODAL */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: white;
+    margin-top: 0; 
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body.night-mode .modal-content {
+    background-color: #444;
+    color: #f0f0f0;
+}
