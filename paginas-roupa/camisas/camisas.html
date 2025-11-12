@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>produtos</title>
     <link rel="stylesheet" href="camisas.css"> 
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+    
 </head>
 <body>
 
@@ -21,7 +21,7 @@
             </button>
         </div>
         <div class="user-info">
-            <span><a href="cadastr.html" target="_blank">cadastre-se</a></span>
+            <span><a href="/cadastro/cadastr.html" target="_blank">cadastre-se</a></span>
             <a href="#">Contas e Listas</a>
             <a href="#">Devoluções e Pedidos</a>
             <a href="#" onclick="toggleCarrinho()">
@@ -34,18 +34,11 @@
     <nav>
         <div class="nav-content">
             <ul>
-                <li><a href="" onclick="mostrarTodosOsProdutos()">Home</a></li> 
+                <li><a href="/inicial/inicial.html" onclick="">Home</a></li> 
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>
                 
-                <li class="nav-item dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Produtos
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/paginas-roupa/camisas/camisas.html" target="_blank">Camisas</a></li>
-                        <li><a class="dropdown-item" href="/paginas-roupa/tenis/tenis.html" target="_blank">tenis</a></li>
-                        <li><a class="dropdown-item" href="/paginas-roupa/calça/calça.html" target="_blank">calça</a></li>
+               
                     </ul>
                 </li>
             </ul>
@@ -54,64 +47,136 @@
     </nav>
 
     
-        <img src="/img/camisa/pexels-iiii-iiii-10613-69212.jpg" class="d-block w-100" alt="Banner de Destaque">
+        <img src="/paginas-roupa/camisas/img/pexels-iiii-iiii-10613-69212.jpg" class="d-block w-100" alt="Banner de Destaque">
     
 
     <p></p>
-    <div class="produtos-grid"> 
-        
-        <div class="produto">
-            <div class="img-wrapper">
-                <img src="/img/camisa/camisa.jpeg" alt="Camisa com estampa (Produto 1)">
-            </div>
-            <p>camisa com estampa</p>
-            <p>R$ 300</p>
-            <input type="number" id="quantidade-produto-1" value="1" min="1">
-            <button onclick="adicionarAoCarrinho('Camisa Estampa 1', 300, document.getElementById('quantidade-produto-1').value)">Adicionar ao Carrinho</button>
-        </div>
-        
-        <div class="produto">
-            <div class="img-wrapper">
-                <img src="/img/camisa/camisa.png" alt="Camisa com estampa (Produto 2)">
-            </div>
-            <p>camisa com estampa</p>
-            <p>R$ 300</p>
-            <input type="number" id="quantidade-produto-2" value="1" min="1">
-            <button onclick="adicionarAoCarrinho('Camisa Estampa 2', 300, document.getElementById('quantidade-produto-2').value)">Adicionar ao Carrinho</button>
-        </div>
+    <p></p>
+<div>
+  <main class="flex-grow-1"> <section class="hero">
+            <h1>tudo que voce sempre sonhou</h1>
+            <p>30% de desconto se comprar hoje</p>
+</div>
+     
+ 
+<div class="produtos-grid">
 
-        <div class="produto 3">
-            <div class="img-wrapper">
-                <img src="/img/camisa/camisa.jpeg" alt="Camisa com estampa (Produto 3)">
-            </div>
-            <p>camisa com estampa</p>
-            <p>R$ 300</p>
-            <input type="number" id="quantidade-produto-3" value="1" min="1">
-            <button onclick="adicionarAoCarrinho('Camisa Estampa 3', 300, document.getElementById('quantidade-produto-3').value)">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="produto">
-            <div class="img-wrapper">
-                <img src="/img/camisa/moletom.png" alt="Casaco Branco (Produto 4)">
-            </div>
-            <p>casaco branco</p>
-            <p>R$ 150,00</p>
-            <input type="number" id="quantidade-produto-4" value="1" min="1">
-            <button onclick="adicionarAoCarrinho('Casaco Branco 1', 150, document.getElementById('quantidade-produto-4').value)">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="produto">
-            <div class="img-wrapper">
-                <img src="/img/camisa/moletom.png" alt="Casaco Branco (Produto 5)">
-            </div>
-            <p>casaco branco</p>
-            <p>R$ 150,00</p>
-            <input type="number" id="quantidade-produto-5" value="1" min="1">
-            <button onclick="adicionarAoCarrinho('Casaco Branco 2', 150, document.getElementById('quantidade-produto-5').value)">Adicionar ao Carrinho</button>
+    <div class="produto"> 
+        <div class="img-wrapper">
+            <img class="img-principal" src="/paginas-roupa/camisas/img/camisa social-1.jpg" alt="Camisa principal">
+            <img class="img-secundaria" src="/paginas-roupa/camisas/img/camisa social-2.webp" alt="Camisa secundária">
         </div>
         
-    </div> 
-    
+        <button class="favoritar-btn">
+            <i class="far fa-heart"></i>
+        </button>
+
+        <div class="opcoes-tamanho">
+            <span class="tamanho-btn">P</span>
+            <span class="tamanho-btn">M</span>
+            <span class="tamanho-btn">G</span>
+            <span class="tamanho-btn">GG</span>
+            <span class="tamanho-btn">GGG</span>
+        </div>
+
+        <p>Camisa social</p>
+        <p>R$ 300,00</p>
+        
+        <input type="number" id="quantidade-produto-1" value="1" min="1" style="display:none;">
+        <button class="comprar-btn" onclick="adicionarAoCarrinho('Camisa social', 300, document.getElementById('quantidade-produto-1').value)">
+            <i class="fas fa-shopping-bag"></i> Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <div class="img-wrapper">
+            <img class="img-principal" src="/paginas-roupa/camisas/img/camisa-polo.jpg" alt="Camisa principal">
+            <img class="img-secundaria" src="/paginas-roupa/camisas/img/camisa-polo-2.jpg" alt="Camisa secundária">
+        </div>
+        
+        <button class="favoritar-btn">
+            <i class="far fa-heart"></i>
+        </button>
+
+        <div class="opcoes-tamanho">
+            <span class="tamanho-btn">P</span>
+            <span class="tamanho-btn">M</span>
+            <span class="tamanho-btn">G</span>
+            <span class="tamanho-btn">GG</span>
+            <span class="tamanho-btn">GGG</span>
+        </div>
+
+        <p>Camisa polo</p>
+        <p>R$ 200,00</p>
+        
+        <input type="number" id="quantidade-produto-2" value="1" min="1" style="display:none;">
+        <button class="comprar-btn" onclick="adicionarAoCarrinho('Camisa polo', 300, document.getElementById('quantidade-produto-2').value)">
+            <i class="fas fa-shopping-bag"></i> Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <div class="img-wrapper">
+            <img class="img-principal" src="/paginas-roupa/camisas/img/camisa-feminina-social-1.jpg" alt="Camisa principal">
+            <img class="img-secundaria" src="/paginas-roupa/camisas/img/camisa-feminina-social-2.jpg" alt="Camisa secundária">
+        </div>
+        
+        <button class="favoritar-btn">
+            <i class="far fa-heart"></i>
+        </button>
+
+        <div class="opcoes-tamanho">
+            <span class="tamanho-btn">P</span>
+            <span class="tamanho-btn">M</span>
+            <span class="tamanho-btn">G</span>
+            <span class="tamanho-btn">GG</span>
+            <span class="tamanho-btn">GGG</span>
+        </div>
+
+        <p>Camisa feminina social</p>
+        <p>R$ 400,00</p>
+        
+        <input type="number" id="quantidade-produto-3" value="1" min="1" style="display:none;">
+        <button class="comprar-btn" onclick="adicionarAoCarrinho('Camisa feminina social', 300, document.getElementById('quantidade-produto-3').value)">
+            <i class="fas fa-shopping-bag"></i> Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <div class="img-wrapper">
+            <img class="img-principal" src="/paginas-roupa/camisas/img/jn-1.jpg" alt="Camisa principal">
+            <img class="img-secundaria" src="/paginas-roupa/camisas/img/jn-2.jpg" alt="Camisa secundária">
+        </div>
+        
+        <button class="favoritar-btn">
+            <i class="far fa-heart"></i>
+        </button>
+
+        <div class="opcoes-tamanho">
+            <span class="tamanho-btn">P</span>
+            <span class="tamanho-btn">M</span>
+            <span class="tamanho-btn">G</span>
+            <span class="tamanho-btn">GG</span>
+            <span class="tamanho-btn">GGG</span>
+        </div>
+
+        <p>o cu dessa cara</p>
+        <p>R$ 10,00</p>
+        
+        <input type="number" id="quantidade-produto-4" value="1" min="1" style="display:none;">
+        <button class="comprar-btn" onclick="adicionarAoCarrinho('o cu dessa cara', 300, document.getElementById('quantidade-produto-4').value)">
+            <i class="fas fa-shopping-bag"></i> Comprar
+        </button>
+    </div>
+
+</div>
+
+
+
+       
     <section class="carrinho" id="carrinho">
         <button class="close-btn" onclick="toggleCarrinho()">X</button>
         <h2>Seu Carrinho</h2>
@@ -120,8 +185,47 @@
         <button onclick="finalizarCompra()">Finalizar Compra</button>
     </section>
 
+
+    <div class="carrocel-center">
+
+      <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/paginas-roupa/camisas/img/carrossel-1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/paginas-roupa/camisas/img/img-carrocel.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/paginas-roupa/camisas/img/carrrossel-3 (1).jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+    </div>
+    
+
+</main>
+  
+<p></p>
+
+<footer>
+        <p>&copy; 2024 Minha Loja.</p>
+    </footer>
+
+
+
     <script src="camisas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </body>
+
 </html>

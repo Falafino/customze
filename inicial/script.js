@@ -94,3 +94,47 @@ function toggleNightMode() {
     document.querySelector('header').classList.toggle('night-mode');
     document.querySelector('nav').classList.toggle('night-mode');
 }
+
+
+/*timer*/
+
+function iniciarContadorRegressivo() {
+    // 1. DEFINE A DATA FINAL DA PROMOÇÃO (Mês/Dia/Ano Horas:Minutos:Segundos)
+    // Exemplo: 11 de Dezembro de 2025 às 23:59:59
+    const dataFinal = new Date("Nov 15, 2025 23:59:59").getTime();
+
+    // 2. ATUALIZA O CONTADOR A CADA 1 SEGUNDO
+    const x = setInterval(function() {
+        // Pega a data e hora atuais
+        const agora = new Date().getTime();
+
+        // Calcula a distância (diferença) entre o agora e a data final
+        const distancia = dataFinal - agora;
+
+        // 3. CÁLCULOS
+        const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+        // 4. EXIBE O RESULTADO NO HTML
+        if (distancia > 0) {
+            // Usa .padStart(2, '0') para garantir dois dígitos (ex: 09, 10)
+            document.getElementById("days").innerHTML = String(dias).padStart(2, '0');
+            document.getElementById("hours").innerHTML = String(horas).padStart(2, '0');
+            document.getElementById("minutes").innerHTML = String(minutos).padStart(2, '0');
+            document.getElementById("seconds").innerHTML = String(segundos).padStart(2, '0');
+        } else {
+            // 5. QUANDO O TEMPO ACABA
+            clearInterval(x); // Para o contador
+            document.getElementById("countdown").style.display = "none"; // Esconde o timer
+            document.getElementById("expired-message").style.display = "block"; // Mostra mensagem de expirado
+        }
+    }, 1000); // 1000 milissegundos = 1 segundo
+}
+
+// Chame a função quando a página carregar
+document.addEventListener('DOMContentLoaded', iniciarContadorRegressivo);
+
+
+/*final !!!!!!*/

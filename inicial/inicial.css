@@ -1,3 +1,7 @@
+/* ========================================================== */
+/* 1. ESTILOS BÁSICOS (HTML/BODY) */
+/* ========================================================== */
+
 html, body {
     height: 100%; /* Garante que HTML e Body ocupem toda a altura da viewport */
     margin: 0;
@@ -10,23 +14,46 @@ body {
     background-color: #f0f0f0;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
-    /* Para o sticky footer */
+    
     display: flex;
     flex-direction: column;
 }
+
+/* ========================================================== */
+/* 2. MODO NOTURNO (ESTILOS GERAIS DE TEMA) */
+/* ========================================================== */
 
 body.night-mode {
     background-color: #333;
     color: #f0f0f0;
 }
 
-header {
-    background-color: #333;
+header.night-mode {
+    background-color: #222;
+}
+
+/* Corrigindo a cor dos links dentro do user-info no night-mode */
+body.night-mode .user-info a {
+    color: #f0f0f0;
+}
+
+/* Corrigindo o fundo dos botões no night-mode */
+body.night-mode button {
+    background-color: #555;
     color: white;
 }
 
-header.night-mode {
-    background-color: #222;
+body.night-mode button:hover {
+    background-color: #777;
+}
+
+/* ========================================================== */
+/* 3. TOP BAR E BUSCA */
+/* ========================================================== */
+
+header {
+    background-color: #333;
+    color: white;
 }
 
 .top-bar {
@@ -42,21 +69,21 @@ header.night-mode {
 }
 
 .search-container {
-    display: flex; /* Para alinhar o input e o botão de busca */
+    display: flex; 
     align-items: center;
 }
 
 .search-bar {
-    width: 40%; /* Você pode ajustar essa largura */
+    width: 40%;
     padding: 0.5em;
     border-radius: 5px;
     border: none;
     transition: background-color 0.3s, color 0.3s;
-    margin-right: 0.5em; /* Espaçamento entre o input e o botão */
+    margin-right: 0.5em;
 }
 
 .search-button {
-    padding: 0.5em 0.8em; /* Ajuste o padding para o ícone */
+    padding: 0.5em 0.8em;
 }
 
 button {
@@ -94,13 +121,14 @@ button:hover {
     margin-right: 0.5em;
 }
 
-/* ---------------------------------------------------- */
-/* NAVEGAÇÃO E DROPDOWN (Corrigido) */
+/* ========================================================== */
+/* 4. NAVIGATION BAR (NAV) E DROPDOWN GERAL */
+/* ========================================================== */
 
 nav {
     background-color: #444;
-    padding: 0 1em; /* Padding para as laterais da nav */
-    display: flex; /* Para alinhar o .nav-content */
+    padding: 0 1em; 
+    display: flex;
     align-items: center;
 }
 
@@ -110,7 +138,7 @@ nav.night-mode {
 
 .nav-content {
     display: flex;
-    justify-content: space-between; /* Empurra a ul para um lado e o botão para o outro */
+    justify-content: space-between; 
     align-items: center;
     width: 100%;
 }
@@ -119,7 +147,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 1em;
-    padding: 0.5em 0; /* Padding vertical para os itens da lista */
+    padding: 0.5em 0; 
     margin: 0;
 }
 
@@ -133,18 +161,63 @@ nav a:hover {
     color: #ddd;
 }
 
-/* Estilos específicos do dropdown (Bootrap já lida com a maior parte) */
-.dropdown-menu {
-    /* Bootstrap já deve aplicar position: absolute; top: 100%; left: 0; */
-    /* Se precisar de ajustes finos, adicione aqui */
+/* Estilo do botão Dropdown (para parecer um link) */
+.nav-item .btn.dropdown-toggle {
+    background-color: transparent !important;
+    border: none !important;
+    color: white !important; 
+    padding: 0; 
 }
 
-/* ---------------------------------------------------- */
-/* MAIN CONTENT (Para o Sticky Footer) */
+.nav-item .btn.dropdown-toggle:hover {
+    background-color: transparent !important;
+    color: #ddd !important;
+}
+
+.nav-item .btn.dropdown-toggle::after {
+    display: none;
+}
+
+/* DROPDOWN MENU PADRÃO (Visível) */
+.dropdown-menu {
+    /* Manter a cor clara para o modo dia */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); 
+}
+
+/* ========================================================== */
+/* 5. CORREÇÃO DROPDOWN MENU NO MODO NOTURNO (AQUI ESTÁ A SOLUÇÃO) */
+/* ========================================================== */
+
+/* 1. Altera o fundo e a borda do Menu Suspenso (UL) */
+body.night-mode .dropdown-menu {
+    background-color: #333 !important;
+    border-color: #555 !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4) !important; 
+}
+
+/* 2. Altera a cor do texto padrão do Item (LI ou A) DENTRO DO DROPDOWN */
+/* CHAVE: Alvo específico no link/botão dentro do item */
+body.night-mode a.dropdown-item, 
+body.night-mode button.dropdown-item {
+    color: #f0f0f0 !important;
+}
+
+/* 3. Altera as cores do Item no HOVER */
+body.night-mode .dropdown-item:hover,
+body.night-mode .dropdown-item:focus {
+    background-color: #555 !important;
+    color: #ffffff !important;
+}
+
+/* ========================================================== */
+/* 6. MAIN CONTENT E HERO */
+/* ========================================================== */
 
 main.flex-grow-1 {
-    flex-grow: 1; /* Faz com que o main ocupe todo o espaço disponível */
-    padding-bottom: 0; /* Garante que não haja padding inferior extra no main */
+    flex-grow: 1; 
+    padding-bottom: 0;
 }
 
 .hero {
@@ -157,56 +230,179 @@ main.flex-grow-1 {
     transform: scale(1.05);
 }
 
-.produtos-section { /* Nova classe para a seção principal de produtos */
+.produtos-section { 
     padding: 2em 1em;
     text-align: center;
 }
 
-.produtos-grid { /* Nova classe para contêiner de grid de produtos */
+
+/* ========================================================== */
+/* 7. GRADE DE PRODUTOS (FLEXBOX) */
+/* ========================================================== */
+
+.produtos-grid { 
     display: flex;
-    flex-wrap: wrap; /* Permite que os produtos quebrem linha */
-    justify-content: center; /* Centraliza os produtos */
-    gap: 1em; /* Espaçamento entre os produtos */
-    margin-bottom: 2em; /* Espaçamento entre as seções de produtos */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+    align-items: stretch;
+    padding: 2em 1em;
+    margin-bottom: 2em;
 }
+
+
+/* ========================================================== */
+/* 8. PRODUTO INDIVIDUAL (CARD) E EFEITO HOVER */
+/* ========================================================== */
 
 .produto {
-    display: flex; /* Para alinhar imagem, texto e botões */
+    display: flex; 
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    width: 200px;
-    border: 1px solid #ccc;
-    padding: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    
+    width: 280px; 
+    padding: 0; 
+    border: 1px solid #eee;
+    background-color: white;
+    box-shadow: none;
+    transition: box-shadow 0.3s, transform 0.3s;
     text-align: center;
+    position: relative; 
+    
+    min-height: 480px; 
 }
 
-.produto img {
-    max-width: 100%;
-    height: auto; /* Mantém a proporção da imagem */
-    margin-bottom: 1em;
-    transition: transform 0.3s;
+/* Estilos de Card no Modo Noturno */
+body.night-mode .produto {
+    background-color: #444;
+    border-color: #555;
+    color: #f0f0f0;
 }
 
-.produto p {
-    margin: 0.5em 0;
+body.night-mode .produto:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.produto input[type="number"] {
-    width: 60px;
-    margin-bottom: 1em;
-    text-align: center;
-}
 
 .produto:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: none;
 }
 
-.produto:hover img {
-    transform: scale(1.05); /* Ajustado para não escalar demais */
+/* Wrapper para Troca de Imagem */
+.img-wrapper {
+    height: 350px;
+    width: 100%;
+    position: relative; 
+    overflow: hidden;
+    margin-bottom: 0;
+    display: block; 
 }
+
+.img-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: opacity 0.3s ease;
+}
+
+.img-principal { opacity: 1; }
+.img-secundaria { opacity: 0; }
+
+.produto:hover .img-principal { opacity: 0; }
+.produto:hover .img-secundaria { opacity: 1; }
+
+/* Botão Favoritar (Coração) */
+.favoritar-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    color: #333;
+    padding: 0;
+    transition: all 0.2s;
+}
+
+body.night-mode .favoritar-btn {
+    background: #555;
+    color: #f0f0f0;
+}
+
+.favoritar-btn:hover {
+    background-color: #f8f8f8;
+    color: red;
+}
+
+/* Opções de Tamanho */
+.opcoes-tamanho {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0 15px 0;
+    width: 100%;
+}
+
+.tamanho-btn {
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+    min-width: 30px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+body.night-mode .tamanho-btn {
+    border-color: #555;
+    color: #f0f0f0;
+}
+
+
+.tamanho-btn:hover {
+    border-color: #333;
+    background-color: #f0f0f0;
+}
+
+/* Botão Comprar */
+.comprar-btn {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #333;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    opacity: 0;
+    transform: translateY(10px); 
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.comprar-btn i { margin-right: 5px; }
+
+.produto:hover .comprar-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.produto input[type="number"] { display: none; }
+
+
+/* ========================================================== */
+/* 9. CARRINHO LATERAL */
+/* ========================================================== */
 
 .carrinho {
     position: fixed;
@@ -221,9 +417,7 @@ main.flex-grow-1 {
     z-index: 1000;
 }
 
-.carrinho.aberto {
-    right: 0;
-}
+.carrinho.aberto { right: 0; }
 
 .close-btn {
     background-color: transparent;
@@ -235,20 +429,16 @@ main.flex-grow-1 {
     right: 10px;
 }
 
-/* ---------------------------------------------------- */
-/* FOOTER (Corrigido para não ter espaçamento extra) */
-
-footer {
-    text-align: center;
-    padding: 1em;
-    background-color: #333;
-    color: white;
-    /* Nenhuma margem superior extra aqui para evitar espaçamento */
-    margin-top: 0; 
+body.night-mode .carrinho {
+    background-color: #444;
+    color: #f0f0f0;
 }
 
-/* ---------------------------------------------------- */
-/* MODAL (Mantido) */
+
+/* ========================================================== */
+/* 10. MODAL (Janela Pop-up) */
+/* ========================================================== */
+
 .modal {
     display: none;
     position: fixed;
@@ -272,52 +462,35 @@ footer {
     text-align: center;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 body.night-mode .modal-content {
     background-color: #444;
     color: #f0f0f0;
 }
 
+/* ========================================================== */
+/* 11. FOOTER */
+/* ========================================================== */
 
-
-
-/* Seleciona o botão do seu dropdown */
-.nav-item .btn.dropdown-toggle {
-    /* Remove a cor de fundo */
-    background-color: transparent !important;
-    
-    /* Remove a borda */
-    border: none !important;
-    
-    /* Garante que a cor do texto seja branca (como os outros links da nav) */
-    color: white !important; 
-    
-    /* Remove o padding padrão do botão, se necessário, para que fique mais parecido com um link */
-    padding: 0; 
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: white;
+    margin-top: 0; 
 }
 
-/* Garante que o efeito hover também seja transparente, apenas mudando a cor do texto */
-.nav-item .btn.dropdown-toggle:hover {
-    background-color: transparent !important;
-    color: #ddd !important; /* Mude a cor no hover para dar feedback */
+/* ========================================================== */
+/* 12. TIMER DE PROMOÇÃO */
+/* ========================================================== */
+
+.timer-box {
+    width: 120px; 
 }
 
-/* Opcional: Para remover a pequena seta de dropdown se você quiser */
-.nav-item .btn.dropdown-toggle::after {
-    display: none;
+body.night-mode .timer-box {
+    background-color: #555 !important;
+    color: #fff;
 }
-
-
+/* ========================================================== */
+/* FIM DO ARQUIVO CSS ORGANIZADO */
+/* ========================================================== */

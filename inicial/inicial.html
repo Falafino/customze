@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customize</title>
     <link rel="stylesheet" href="/inicial/inicial.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body class="flex-body"> <header>
@@ -19,7 +20,7 @@
                 </button>
             </div>
             <div class="user-info">
-                <span><a href="cadastr.html" target="_blank" >cadastre-se</a></span>
+                <span><a href="/cadastro/cadastr.html" target="_blank" >cadastre-se</a></span>
                 <a href="#">Contas e Listas</a>
                 <a href="#">Devoluções e Pedidos</a>
                 <a href="#" onclick="toggleCarrinho()">
@@ -50,63 +51,161 @@
             </div>
         </nav>
     </header>
-    <main class="flex-grow-1"> <section class="hero">
-            <h1>Bem-vindo à Nossa Loja de Customização</h1>
-            <p>Descubra as últimas tendências da moda</p>
-            <button onclick="verProdutos()">Ver Produtos</button>
-        </section>
+    <div>
+    
+
+         <!--timer-->
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">✨ promoção de Black Friday:</h2>
+    
+    <div id="countdown" class="d-flex justify-content-center text-center">
+        <div class="timer-box p-3 mx-2 rounded bg-dark text-white">
+            <h1 id="days" class="display-4 fw-bold">00</h1>
+            <p class="mb-0">DIAS</p>
+        </div>
         
-        <section class="produtos-section">
-            <h2>Novidades</h2>
-            <div class="produtos-grid">
-                <div class="produto">
-                    <img src="img/camisa/camisa.jpeg" alt="Produto 1">
-                    <p>camisa branca</p>
-                    <p>R$ 100,00</p>
-                    <input type="number" id="quantidade-produto-1" value="1" min="1">
-                    <button onclick="adicionarAoCarrinho('Produto 1', 100, document.getElementById('quantidade-produto-1').value)">Adicionar ao Carrinho</button>
-                </div>
-                <div class="produto">
-                    <img src="img/camisa/moletom.png" alt="Produto 2">
-                    <p>casaco branco</p>
-                    <p>R$ 150,00</p>
-                    <input type="number" id="quantidade-produto-2" value="1" min="1">
-                    <button onclick="adicionarAoCarrinho('Produto 2', 150, document.getElementById('quantidade-produto-2').value)">Adicionar ao Carrinho</button>
-                </div>
-                <div class="produto">
-                    <img src="img/tenis/tenis.jpeg" alt="Produto 3">
-                    <p>tenis</p>
-                    <p>R$ 400</p>
-                    <input type="number" id="quantidade-produto-3" value="1" min="1">
-                    <button onclick="adicionarAoCarrinho('Produto 3', 150, document.getElementById('quantidade-produto-3').value)">Adicionar ao Carrinho</button>
-                </div>
-                <div class="produto">
-                    <img src="img/calça" alt="Produto 4">
-                    <p>calça</p>
-                    <p>R$ 10</p>
-                    <input type="number" id="quantidade-produto-4" value="1" min="1">
-                    <button onclick="adicionarAoCarrinho('Produto 4', 150, document.getElementById('quantidade-produto-4').value)">Adicionar ao Carrinho</button>
-                </div>
-            </div> <br>
-            <br>
-            <br>
-            
-            <h2>Produtos mais vendidos</h2>
-            
-            <div class="produtos-grid"> <div class="produto">
-                    <img src="img/calça/calça.jpeg" alt="Produto 5">
-                    <p>camisa com estampa</p>
-                    <p>R$ 300</p>
-                    <input type="number" id="quantidade-produto-5" value="1" min="1">
-                    <button onclick="adicionarAoCarrinho('Produto 5', 150, document.getElementById('quantidade-produto-5').value)">Adicionar ao Carrinho</button>
-                </div>
-                <div class="produto">
-                    <img src="calça/calça-fe.jpeg" alt="Produto 6">
-                    <p>jeans</p>
-                    <p>R$ 250</p>
-                    <input type="number" id="quantidade-produto-6" value="1" min="1">
-                    <button onclick="adicionarAoCarrinho('Produto 6', 150, document.getElementById('quantidade-produto-6').value)">Adicionar ao Carrinho</button>
-                </div>
+        <div class="timer-box p-3 mx-2 rounded bg-dark text-white">
+            <h1 id="hours" class="display-4 fw-bold">00</h1>
+            <p class="mb-0">HORAS</p>
+        </div>
+        
+        <div class="timer-box p-3 mx-2 rounded bg-dark text-white">
+            <h1 id="minutes" class="display-4 fw-bold">00</h1>
+            <p class="mb-0">MINUTOS</p>
+        </div>
+        
+        <div class="timer-box p-3 mx-2 rounded bg-dark text-white">
+            <h1 id="seconds" class="display-4 fw-bold">00</h1>
+            <p class="mb-0">SEGUNDOS</p>
+        </div>
+    </div>
+    
+    <p id="expired-message" class="text-center mt-3 fs-3 fw-bold text-danger" style="display: none;">PROMOÇÃO EXPIRADA!</p>
+</div>
+<!--final-->
+
+
+
+
+
+        
+        <div class="produtos-grid">
+
+    <div class="produto"> 
+        <div class="img-wrapper">
+            <img class="img-principal" src="/paginas-roupa/calça/img/bermuda saja verde-1.jpg" alt="Camisa principal">
+            <img class="img-secundaria" src="/paginas-roupa/calça/img/bermuda saja-2.jpg" alt="Camisa secundária">
+        </div>
+        
+        <button class="favoritar-btn">
+            <i class="far fa-heart"></i>
+        </button>
+
+        <div class="opcoes-tamanho">
+            <span class="tamanho-btn">P</span>
+            <span class="tamanho-btn">M</span>
+            <span class="tamanho-btn">G</span>
+            <span class="tamanho-btn">GG</span>
+            <span class="tamanho-btn">GGG</span>
+        </div>
+
+        <p>bermuda sarja</p>
+        <p>R$ 70,00</p>
+        
+        <input type="number" id="quantidade-produto-1" value="1" min="1" style="display:none;">
+        <button class="comprar-btn" onclick="adicionarAoCarrinho('Camisa Estampa 1', 300, document.getElementById('quantidade-produto-1').value)">
+            <i class="fas fa-shopping-bag"></i> Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <div class="img-wrapper">
+            <img class="img-principal" src="/paginas-roupa/camisas/img/camiseta-canelada-1.jpg" alt="Camisa principal">
+            <img class="img-secundaria" src="/paginas-roupa/camisas/img/camiseta-canelada-2.jpg" alt="Camisa secundária">
+        </div>
+        
+        <button class="favoritar-btn">
+            <i class="far fa-heart"></i>
+        </button>
+
+        <div class="opcoes-tamanho">
+            <span class="tamanho-btn">P</span>
+            <span class="tamanho-btn">M</span>
+            <span class="tamanho-btn">G</span>
+            <span class="tamanho-btn">GG</span>
+            <span class="tamanho-btn">GGG</span>
+        </div>
+
+        <p>Camisa canelada</p>
+        <p>R$ 40,00</p>
+        
+        <input type="number" id="quantidade-produto-2" value="1" min="1" style="display:none;">
+        <button class="comprar-btn" onclick="adicionarAoCarrinho('Camisa Estampa 2', 300, document.getElementById('quantidade-produto-2').value)">
+            <i class="fas fa-shopping-bag"></i> Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <div class="img-wrapper">
+            <img class="img-principal" src="/paginas-roupa/camisas/img/camisa-algodão-1.jpg" alt="Camisa principal">
+            <img class="img-secundaria" src="/paginas-roupa/camisas/img/camisa-algodão-2.jpg" alt="Camisa secundária">
+        </div>
+        
+        <button class="favoritar-btn">
+            <i class="far fa-heart"></i>
+        </button>
+
+        <div class="opcoes-tamanho">
+            <span class="tamanho-btn">P</span>
+            <span class="tamanho-btn">M</span>
+            <span class="tamanho-btn">G</span>
+            <span class="tamanho-btn">GG</span>
+            <span class="tamanho-btn">GGG</span>
+        </div>
+
+        <p>Camisa de algodão</p>
+        <p>R$ 40,00</p>
+        
+        <input type="number" id="quantidade-produto-3" value="1" min="1" style="display:none;">
+        <button class="comprar-btn" onclick="adicionarAoCarrinho('Camisa Estampa 3', 300, document.getElementById('quantidade-produto-3').value)">
+            <i class="fas fa-shopping-bag"></i> Comprar
+        </button>
+    </div>
+
+
+    <div class="produto">
+        <div class="img-wrapper">
+            <img class="img-principal" src="/paginas-roupa/camisas/img/regata-decote-1.jpg" alt="Camisa principal">
+            <img class="img-secundaria" src="/paginas-roupa/camisas/img/regata-decote-2.jpg" alt="Camisa secundária">
+        </div>
+        
+        <button class="favoritar-btn">
+            <i class="far fa-heart"></i>
+        </button>
+
+        <div class="opcoes-tamanho">
+            <span class="tamanho-btn">P</span>
+            <span class="tamanho-btn">M</span>
+            <span class="tamanho-btn">G</span>
+            <span class="tamanho-btn">GG</span>
+            <span class="tamanho-btn">GGG</span>
+        </div>
+
+        <p>regata decote</p>
+        <p>R$ 30,00</p>
+        
+        <input type="number" id="quantidade-produto-4" value="1" min="1" style="display:none;">
+        <button class="comprar-btn" onclick="adicionarAoCarrinho('Camisa Estampa 4', 300, document.getElementById('quantidade-produto-4').value)">
+            <i class="fas fa-shopping-bag"></i> Comprar
+        </button>
+    </div>
+
+</div>
+                
+                    
             </div> </section> <section class="carrinho" id="carrinho">
             <button class="close-btn" onclick="toggleCarrinho()">X</button>
             <h2>Seu Carrinho</h2>
