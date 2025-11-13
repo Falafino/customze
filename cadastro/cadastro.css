@@ -229,4 +229,22 @@ input[type="radio"] {
 
 
 
+.inputUser.error {
+    border-bottom-color: #e74c3c !important;
+}
+
+.inputUser.success {
+    border-bottom-color: #2ecc71 !important; 
+}
+
+.inputbox small {
+    display: block;
+    color: #e74c3c; 
+    font-size: 0.8em;
+    margin-top: 5px;
+    height: 15px; 
+}
+
+
+
 

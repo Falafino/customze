@@ -5,20 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Login</title>
     <link rel="stylesheet" href="login.css">
-    
-  
 </head>
+
 <body>
     <div class="login-form">
         <h1>Faça seu login</h1>
-        <form action="/inicial/inicial.html"id =form>
-            <input type="text" placeholder="Usuário" required>
-            <input type="password" placeholder="Senha" required>
-           
-            <input onclick="cadastrar()" type="submit"nome="submit" id="submit"> 
+
+       
+        <form id="loginForm">
+            <input type="email" id="emailLogin" placeholder="Email" required>
+            <input type="password" id="senhaLogin" placeholder="Senha" required>
+
+            <input type="submit" value="Entrar" id="submitLogin">
+
+            
+           <button id="btnEsqueceuSenha" type="button" class="esqueceu-senha-btn">
+  Esqueceu sua senha?
+</button>
+
+            
+            <p id="feedbackMessage"></p>
+            <p id="msgReset"></p>
         </form>
-        <a>Não possui uma conta? <a href="/cadastro/cadastr.html" target ="_blank">Crie uma aqui</a>.</n1</a>
-        <script src="/login/login.js"></script>
+
+        <p>Não possui uma conta? <a href="/cadastro/cadastr.html">Crie uma aqui</a>.</p>
     </div>
+
+  
+    <script type="module" src="/login/login.js"></script>
+    <script type="module" src="/cadastro/firebase-init.js"></script>
 </body>
 </html>

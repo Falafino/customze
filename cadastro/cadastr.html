@@ -1,75 +1,66 @@
 <!DOCTYPE html>
-<html lang="portuguese">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cadastro</title>
-    <link rel="stylesheet" href="cadastro.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
-
-   
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="cadastro.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
+  <div class="box">
+    <h1>CADASTRE-SE</h1>
+    <p></p>
+
     
-    <div class="box">
-        <h1>CADASTRE-SE</h1>
-        
-        <form action="/login/login.html" id="form">
-            
-           
-            <br>
-            <div class="inputbox">
-                <input type="texto" name="nome" id="nome" class="inputUser" required>
-                    <label id="labelNome" for="nome"class="labelinput">nome completo</label>
-                    
-                <div>
-                    <br><br>
-            <div class="inputbox">
-                    <input type="text" name="email" id="email" class="inputUser" required>
-                        <label id="labelemail" for="nome" class="labelinput">email</label>
-                        <small id="textEmail"></small>
-                        <div>
-                    <br><br>
-                    <div class="inputbox">
-                        <input type="password" name="senha" id="senha" class="inputUser" required>
-                           <label id="labelSenha"for="nome" class="labelinput">senha</label>
-                           <small id="passwordsenha"></small>
-                    <div>
-                        <br><br>
-             <div class="inputbox">
-                            <input type="tel" name="telefone" id="telefone" class="inputUser"
-                               pattern="\d{3}\ \(\d{2}\) \d{4}-\d{4}" required>
-                               <label id="labelTelefone" for="nome"class="labelinput">telefone</label>
-                        
+    <form id="form">
+      <div class="inputbox">
+        <input type="text" name="nome" id="nome" class="inputUser" required>
+        <label for="nome" class="labelinput">Nome completo</label>
+      </div>
 
-                <div>
-                <p>sexo:</p>     
-                <input type="radio" id = "feminino" name="genero" value="feminino" required>
-                <label for="feminino">Feminino</label><br>
-                <input type="radio" id = "masculino" name="genero" value="masculino" required>
-                <label for="masculino">Masculino</label><br>
-                <input type="radio" id = "outros" name="genero" value="outros" required>
-                <label for="outros">Outros</label><br>
+      <br>
+      <div class="inputbox">
+        <input type="text" name="email" id="email" class="inputUser" required>
+        <label for="email" class="labelinput">Email</label>
+        <small id="textEmail"></small>
+      </div>
 
+      <br>
+      <div class="inputbox">
+        <input type="password" name="senha" id="senha" class="inputUser" required>
+        <label for="senha" class="labelinput">Senha</label>
+        <small id="passwordsenha"></small>
+      </div>
 
-                    <br><br>
-                    
-                        <label for="data_nascimento"class=><b>data de nascimento:</b></label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" required>
-                    <br><br>
+      <br>
+      <div class="inputbox">
+        <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+        <label for="telefone" class="labelinput">Telefone</label>
+      </div>
 
-                    <input onclick="cadastrar()" type="submit"nome="submit" id="submit"> 
-                    
+      <br>
+      <p>Sexo:</p>
+      <input type="radio" id="feminino" name="genero" value="feminino" required>
+      <label for="feminino">Feminino</label><br>
+      <input type="radio" id="masculino" name="genero" value="masculino" required>
+      <label for="masculino">Masculino</label><br>
+      <input type="radio" id="outros" name="genero" value="outros" required>
+      <label for="outros">Outros</label><br>
 
-                    
-                <script src ="/cadastro/cadastro.js"></script> 
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+      <br>
+      <label for="data_nascimento"><b>Data de nascimento:</b></label>
+      <input type="date" name="data_nascimento" id="data_nascimento" required>
 
-            
-        </form>
+      <br><br>
+     
+      <input type="submit" value="Cadastrar" id="submit">
+      <p>tem uma conta <a href="/login/login.html">Clique aqui</a>.</p>
+    </form>
+  </div>
 
+  
+  <script type="module" src="/cadastro/cadastro.js"></script>
 </body>
 </html>

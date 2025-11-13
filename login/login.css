@@ -14,7 +14,7 @@
             border-radius: 5px;
             background-color: #ffffff;
         }
-        input[type="text"]{
+        input[type="email"]{
             width: 92%;
             padding: 10px;
             margin-bottom: 10px;
@@ -40,3 +40,46 @@
             color: white;
             cursor: pointer;
         }
+
+
+
+        .login-form .inputbox {
+    position: relative; /* Essencial para alinhar o small */
+    margin-bottom: 25px; 
+}
+
+/* Estilo para a mensagem de erro */
+.login-form .inputbox small {
+    display: block;
+    color: #e74c3c; /* Vermelho de erro */
+    font-size: 0.8em;
+    margin-top: 5px;
+    min-height: 15px; /* Evita que o layout pule quando o erro aparecer */
+}
+
+/* Destaque do input em caso de erro */
+.login-form .inputUser.error {
+    border-bottom: 2px solid #e74c3c !important; 
+}
+
+
+.esqueceu-senha-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.esqueceu-senha-btn:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+#msgReset {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
