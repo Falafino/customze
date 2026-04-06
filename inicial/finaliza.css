@@ -1,0 +1,246 @@
+/* ===========================
+   ESTILO GERAL DO CARRINHO
+=========================== */
+.carrinho-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f7f7f7; /* Fundo levemente cinza */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.carrinho-container h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* ===========================
+   CABEÇALHO E ESTRUTURA
+=========================== */
+.carrinho-header,
+.carrinho-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.carrinho-header {
+  font-weight: bold;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+/* Linha de separação */
+.separador {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   COLUNAS
+=========================== */
+.coluna-produto {
+  flex-basis: 40%;
+  display: flex;
+}
+
+.coluna-entrega,
+.coluna-valor,
+.coluna-quantidade,
+.coluna-total {
+  flex-basis: 12%;
+  text-align: center;
+}
+
+.coluna-remover {
+  flex-basis: 4%;
+  text-align: center;
+}
+
+/* ===========================
+   DETALHES DO PRODUTO
+=========================== */
+.carrinho-item {
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  transition: 0.3s;
+}
+
+.carrinho-item:hover {
+  background-color: #f0f8ff;
+}
+
+.detalhes-produto {
+  display: flex;
+  align-items: flex-start;
+}
+
+.imagem-produto {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.info-texto {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.nome-produto {
+  font-weight: 500;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.variacao {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.embalagem-gratis {
+  font-size: 12px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.embalagem-gratis:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   CONTADOR DE QUANTIDADE
+=========================== */
+.contador {
+  display: inline-flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.contador button {
+  background: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.contador button:hover {
+  background-color: #eee;
+}
+
+.contador input[type="text"] {
+  width: 35px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 5px 0;
+  outline: none;
+}
+
+/* ===========================
+   ÍCONE DE REMOVER
+=========================== */
+.fa-trash-alt {
+  color: #999;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.fa-trash-alt:hover {
+  color: #dc3545;
+}
+
+/* ===========================
+   PREÇOS E VALORES
+=========================== */
+.coluna-valor p,
+.coluna-total p {
+  font-weight: bold;
+}
+
+/* ===========================
+   RODAPÉ DO CARRINHO
+=========================== */
+.carrinho-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto 0;
+  width: 90%;
+  max-width: 1000px;
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+}
+
+.total-geral {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-finalizar {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-finalizar:hover {
+  background-color: #218838;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+@media (max-width: 768px) {
+  .carrinho-header {
+    display: none;
+  }
+
+  .carrinho-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .coluna-produto,
+  .coluna-entrega,
+  .coluna-valor,
+  .coluna-quantidade,
+  .coluna-total,
+  .coluna-remover {
+    flex-basis: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .carrinho-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .btn-finalizar {
+    width: 100%;
+  }
+}
