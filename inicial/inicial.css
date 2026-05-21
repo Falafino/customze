@@ -1,54 +1,28 @@
 /* ========================================================== */
-/* 1. ESTILOS BÁSICOS (HTML/BODY) */
+/* RESET E CONFIGURAÇÕES GERAIS */
 /* ========================================================== */
 
-html, body {
-    height: 100%; /* Garante que HTML e Body ocupem toda a altura da viewport */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
     font-family: Arial, sans-serif;
-    box-sizing: border-box;
     background-color: #f0f0f0;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
-    
     display: flex;
     flex-direction: column;
 }
 
 /* ========================================================== */
-/* 2. MODO NOTURNO (ESTILOS GERAIS DE TEMA) */
-/* ========================================================== */
-
-body.night-mode {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-header.night-mode {
-    background-color: #222;
-}
-
-/* Corrigindo a cor dos links dentro do user-info no night-mode */
-body.night-mode .user-info a {
-    color: #f0f0f0;
-}
-
-/* Corrigindo o fundo dos botões no night-mode */
-body.night-mode button {
-    background-color: #555;
-    color: white;
-}
-
-body.night-mode button:hover {
-    background-color: #777;
-}
-
-/* ========================================================== */
-/* 3. TOP BAR E BUSCA */
+/* HEADER (TOPO) */
 /* ========================================================== */
 
 header {
@@ -58,246 +32,125 @@ header {
 
 .top-bar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 1rem;
+    gap: 1rem;
 }
 
 .logo {
-    font-size: 1.5em;
-    transition: color 0.3s;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .search-container {
-    display: flex; 
-    align-items: center;
+    display: flex;
+    flex: 1;
+    max-width: 400px;
 }
 
 .search-bar {
-    width: 40%;
-    padding: 0.5em;
-    border-radius: 5px;
+    flex: 1;
+    padding: 0.5rem;
     border: none;
-    transition: background-color 0.3s, color 0.3s;
-    margin-right: 0.5em;
+    border-radius: 4px 0 0 4px;
 }
 
 .search-button {
-    padding: 0.5em 0.8em;
-}
-
-button {
-    padding: 0.5em;
+    padding: 0.5rem 1rem;
+    background-color: #febd69;
     border: none;
-    border-radius: 5px;
-    background-color: #555;
-    color: white;
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #777;
 }
 
 .user-info {
     display: flex;
-    gap: 1em;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .user-info a {
     color: white;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    transition: color 0.3s;
-}
-
-.user-info a:hover {
-    color: #ddd;
-}
-
-.user-info i {
-    margin-right: 0.5em;
 }
 
 /* ========================================================== */
-/* 4. NAVIGATION BAR (NAV) E DROPDOWN GERAL */
+/* NAVEGAÇÃO */
 /* ========================================================== */
 
 nav {
     background-color: #444;
-    padding: 0 1em; 
-    display: flex;
-    align-items: center;
-}
-
-nav.night-mode {
-    background-color: #333;
 }
 
 .nav-content {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 1em;
-    padding: 0.5em 0; 
+    list-style: none;
+    gap: 1rem;
+    flex-wrap: wrap;
     margin: 0;
+    padding: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
-nav a:hover {
-    color: #ddd;
-}
-
-/* Estilo do botão Dropdown (para parecer um link) */
-.nav-item .btn.dropdown-toggle {
-    background-color: transparent !important;
-    border: none !important;
-    color: white !important; 
-    padding: 0; 
-}
-
-.nav-item .btn.dropdown-toggle:hover {
-    background-color: transparent !important;
-    color: #ddd !important;
-}
-
-.nav-item .btn.dropdown-toggle::after {
-    display: none;
-}
-
-/* DROPDOWN MENU PADRÃO (Visível) */
-.dropdown-menu {
-    /* Manter a cor clara para o modo dia */
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); 
+.mode-toggle {
+    background-color: #febd69;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 /* ========================================================== */
-/* 5. CORREÇÃO DROPDOWN MENU NO MODO NOTURNO (AQUI ESTÁ A SOLUÇÃO) */
+/* GRID DE PRODUTOS (RESPONSIVO) */
 /* ========================================================== */
 
-/* 1. Altera o fundo e a borda do Menu Suspenso (UL) */
-body.night-mode .dropdown-menu {
-    background-color: #333 !important;
-    border-color: #555 !important;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4) !important; 
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
 }
-
-/* 2. Altera a cor do texto padrão do Item (LI ou A) DENTRO DO DROPDOWN */
-/* CHAVE: Alvo específico no link/botão dentro do item */
-body.night-mode a.dropdown-item, 
-body.night-mode button.dropdown-item {
-    color: #f0f0f0 !important;
-}
-
-/* 3. Altera as cores do Item no HOVER */
-body.night-mode .dropdown-item:hover,
-body.night-mode .dropdown-item:focus {
-    background-color: #555 !important;
-    color: #ffffff !important;
-}
-
-/* ========================================================== */
-/* 6. MAIN CONTENT E HERO */
-/* ========================================================== */
-
-main.flex-grow-1 {
-    flex-grow: 1; 
-    padding-bottom: 0;
-}
-
-.hero {
-    text-align: center;
-    padding: 3em 1em;
-    transition: transform 0.3s;
-}
-
-.hero:hover {
-    transform: scale(1.05);
-}
-
-.produtos-section { 
-    padding: 2em 1em;
-    text-align: center;
-}
-
-
-/* ========================================================== */
-/* 7. GRADE DE PRODUTOS (FLEXBOX) */
-/* ========================================================== */
-
-.produtos-grid { 
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 30px; 
-    align-items: stretch;
-    padding: 2em 1em;
-    margin-bottom: 2em;
-}
-
-
-/* ========================================================== */
-/* 8. PRODUTO INDIVIDUAL (CARD) E EFEITO HOVER */
-/* ========================================================== */
 
 .produto {
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    
-    width: 280px; 
-    padding: 0; 
-    border: 1px solid #eee;
-    background-color: white;
-    box-shadow: none;
-    transition: box-shadow 0.3s, transform 0.3s;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
     text-align: center;
-    position: relative; 
-    
-    min-height: 480px; 
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
 }
-
-/* Estilos de Card no Modo Noturno */
-body.night-mode .produto {
-    background-color: #444;
-    border-color: #555;
-    color: #f0f0f0;
-}
-
-body.night-mode .produto:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
 
 .produto:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform: none;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Wrapper para Troca de Imagem */
+/* Imagens */
 .img-wrapper {
-    height: 350px;
+    position: relative;
     width: 100%;
-    position: relative; 
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    margin-bottom: 0;
-    display: block; 
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
 }
 
 .img-wrapper img {
@@ -306,7 +159,7 @@ body.night-mode .produto:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     transition: opacity 0.3s ease;
 }
 
@@ -316,7 +169,7 @@ body.night-mode .produto:hover {
 .produto:hover .img-principal { opacity: 0; }
 .produto:hover .img-secundaria { opacity: 1; }
 
-/* Botão Favoritar (Coração) */
+/* Botão favoritar */
 .favoritar-btn {
     position: absolute;
     top: 10px;
@@ -325,108 +178,143 @@ body.night-mode .produto:hover {
     border-radius: 50%;
     width: 35px;
     height: 35px;
-    line-height: 35px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 10;
-    color: #333;
-    padding: 0;
-    transition: all 0.2s;
 }
 
-body.night-mode .favoritar-btn {
-    background: #555;
-    color: #f0f0f0;
-}
-
-.favoritar-btn:hover {
-    background-color: #f8f8f8;
-    color: red;
-}
-
-/* Opções de Tamanho */
+/* Tamanhos */
 .opcoes-tamanho {
     display: flex;
     justify-content: center;
     gap: 8px;
-    padding: 10px 0 15px 0;
-    width: 100%;
+    flex-wrap: wrap;
+    margin: 10px 0;
 }
 
 .tamanho-btn {
     border: 1px solid #ccc;
-    color: #333;
     padding: 5px 10px;
     cursor: pointer;
-    font-size: 0.8em;
-    min-width: 30px;
-    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 4px;
     transition: all 0.2s;
 }
 
-body.night-mode .tamanho-btn {
-    border-color: #555;
-    color: #f0f0f0;
-}
-
-
 .tamanho-btn:hover {
-    border-color: #333;
-    background-color: #f0f0f0;
-}
-
-/* Botão Comprar */
-.comprar-btn {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 10px;
     background-color: #333;
     color: white;
-    font-size: 1em;
-    font-weight: bold;
+}
+
+/* Botão comprar */
+.comprar-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
     border: none;
-    opacity: 0;
-    transform: translateY(10px); 
-    transition: opacity 0.3s, transform 0.3s;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 8px;
+    transition: background-color 0.2s;
 }
 
-.comprar-btn i { margin-right: 5px; }
-
-.produto:hover .comprar-btn {
-    opacity: 1;
-    transform: translateY(0);
+.comprar-btn:hover {
+    background-color: #555;
 }
-
-.produto input[type="number"] { display: none; }
-
 
 /* ========================================================== */
-/* 9. CARRINHO LATERAL */
+/* CARRINHO LATERAL (INVISÍVEL ATÉ SER ABERTO) */
 /* ========================================================== */
 
 .carrinho {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 300px;
+    width: 320px;
     height: 100%;
     background-color: white;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-    padding: 1em;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    padding: 1rem;
     transition: right 0.3s ease;
     z-index: 1000;
+    overflow-y: auto;
 }
 
-.carrinho.aberto { right: 0; }
+.carrinho.aberto {
+    right: 0;
+}
 
 .close-btn {
-    background-color: transparent;
+    background: transparent;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    float: right;
+}
+
+/* ========================================================== */
+/* TIMER DE PROMOÇÃO */
+/* ========================================================== */
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.timer-box {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 90px;
+    text-align: center;
+}
+
+.timer-box h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* ========================================================== */
+/* MODO NOTURNO (CORES CORRETAS) */
+/* ========================================================== */
+
+body.night-mode {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+body.night-mode .produto {
+    background-color: #444;
+    border: 1px solid #555;
+}
+
+body.night-mode .produto p {
+    color: #f0f0f0;
+}
+
+body.night-mode .tamanho-btn {
+    border-color: #666;
+    color: #f0f0f0;
+}
+
+body.night-mode .tamanho-btn:hover {
+    background-color: #555;
+}
+
+body.night-mode .comprar-btn {
+    background-color: #555;
+}
+
+body.night-mode .comprar-btn:hover {
+    background-color: #777;
 }
 
 body.night-mode .carrinho {
@@ -434,72 +322,177 @@ body.night-mode .carrinho {
     color: #f0f0f0;
 }
 
-
-/* ========================================================== */
-/* 10. MODAL (Janela Pop-up) */
-/* ========================================================== */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: opacity 0.3s;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-}
-
-body.night-mode .modal-content {
-    background-color: #444;
+body.night-mode .close-btn {
     color: #f0f0f0;
 }
 
 /* ========================================================== */
-/* 11. FOOTER */
+/* FOOTER */
 /* ========================================================== */
 
 footer {
     text-align: center;
-    padding: 1em;
+    padding: 1rem;
     background-color: #333;
     color: white;
-    margin-top: 0; 
+    margin-top: auto;
 }
 
 /* ========================================================== */
-/* 12. TIMER DE PROMOÇÃO */
+/* RESPONSIVIDADE (CELULAR, TABLET) */
 /* ========================================================== */
 
-.timer-box {
-    width: 120px; 
+/* TABLET */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-container {
+        max-width: 100%;
+    }
+    
+    .user-info {
+        justify-content: center;
+    }
+    
+    .nav-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .produtos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .carrinho {
+        width: 85%;
+    }
+    
+    .timer-box {
+        min-width: 70px;
+        padding: 0.5rem;
+    }
+    
+    .timer-box h1 {
+        font-size: 1.3rem;
+    }
 }
 
-body.night-mode .timer-box {
+/* CELULAR */
+@media (max-width: 480px) {
+    .produtos-grid {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+    
+    .user-info {
+        font-size: 0.8rem;
+        gap: 0.8rem;
+        justify-content: center;
+    }
+    
+    .timer-box {
+        min-width: 60px;
+    }
+    
+    .timer-box h1 {
+        font-size: 1rem;
+    }
+}
+
+
+
+/* ========================================================== */
+/* ALINHAMENTO PERFEITO DO BOTÃO PRODUTOS COM OS LINKS */
+/* ========================================================== */
+
+/* Ajusta o container do dropdown para ficar igual aos outros li */
+.nav-item.dropdown {
+    display: flex;
+    align-items: center;
+}
+
+/* Força o botão produtos a ter o mesmo comportamento dos links */
+.nav-item .btn.dropdown-toggle {
+    background-color: transparent !important;
+    border: none !important;
+    color: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 1rem !important;
+    font-weight: normal !important;
+    line-height: normal !important;
+    height: auto !important;
+    display: inline-block !important;
+    box-shadow: none !important;
+}
+
+/* Remove a setinha do dropdown */
+.nav-item .btn.dropdown-toggle::after {
+    display: none !important;
+}
+
+/* Hover igual aos outros links */
+.nav-item .btn.dropdown-toggle:hover {
+    color: #ddd !important;
+    background-color: transparent !important;
+}
+
+/* Garante que todos os itens do menu tenham a mesma altura */
+nav ul li,
+.nav-item.dropdown {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+/* Ajuste do menu dropdown para abrir abaixo do botão */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 100px;
+    z-index: 1000;
+}
+
+/* Itens do dropdown */
+.dropdown-item {
+    color: #333 !important;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0 !important;
+    color: #333 !important;
+}
+
+/* Modo noturno */
+body.night-mode .dropdown-menu {
+    background-color: #444 !important;
+    border-color: #555 !important;
+}
+
+body.night-mode .dropdown-item {
+    color: #f0f0f0 !important;
+}
+
+body.night-mode .dropdown-item:hover {
     background-color: #555 !important;
-    color: #fff;
 }
-
-.carrinho-itens {
-  min-height: 200px;
-}
-
-.carrinho-item {
-  transition: all 0.15s ease-in-out;
-}
-
-/* ========================================================== */
-/* FIM DO ARQUIVO CSS ORGANIZADO */
-/* ========================================================== */
